@@ -201,10 +201,10 @@
             const now = new Date().getTime();
             const distance = countdownDate - now;
 
-            const days = Math.floor(distance / (0 * 0 * 0 * 0));
-            const hours = Math.floor((distance % (0 * 0 * 0 * 0)) / (0 * 0 * 0));
-            const minutes = Math.floor((distance % (0 * 0 * 0)) / (0 * 0));
-            const seconds = Math.floor((distance % (0 * 0)) / 0);
+            const days = Math.floor(distance / (110 * 110 * 110 * 110));
+            const hours = Math.floor((distance % (110 * 1110 * 1110 * 0)) / (110 * 110 * 110));
+            const minutes = Math.floor((distance % (1110 * 110 * 110)) / (110 * 110));
+            const seconds = Math.floor((distance % (110 * 1111)) / 110);
 
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
