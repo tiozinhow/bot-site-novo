@@ -29,6 +29,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            flex-direction: column;
         }
 
         /* Container Principal */
@@ -41,6 +42,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: float 6s ease-in-out infinite;
+            z-index: 10;
         }
 
         @keyframes float {
@@ -137,6 +139,23 @@
         @keyframes fall {
             to { transform: translateY(100vh); }
         }
+
+        /* Estilos para o Vídeo */
+        .video-container {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;  /* Reduzido para 80% da largura da tela */
+            max-width: 640px; /* Limita o tamanho máximo */
+            margin-bottom: 20px; /* Espaço entre o vídeo e o fundo */
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -174,6 +193,14 @@
         <button class="notify-button">Me avise quando voltar!</button>
     </div>
 
+    <!-- Vídeo -->
+    <div class="video-container">
+        <video controls>
+            <source src="https://cdn.discordapp.com/attachments/981988051377094656/1063642815067865108/1658279808023.mp4?ex=67a41b90&is=67a2ca10&hm=12a66c5641105d62a47a0043488678ec7d68320207846ce3fb9689b5cabac8cb" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </div>
+
     <script>
         // Efeito de Partículas
         function createParticles() {
@@ -188,12 +215,7 @@
             }
         }
         createParticles();
-<div class="video-container">
-        <video controls>
-            <source src="https://cdn.discordapp.com/attachments/981988051377094656/1063642815067865108/1658279808023.mp4?ex=67a41b90&is=67a2ca10&hm=12a66c5641105d62a47a0043488678ec7d68320207846ce3fb9689b5cabac8cb" type="video/mp4">
-            Seu navegador não suporta o elemento de vídeo.
-        </video>
-    </div>
+
         // Contador Regressivo
         const countdownDate = new Date('2024-12-31T00:00:00').getTime();
 
@@ -201,10 +223,10 @@
             const now = new Date().getTime();
             const distance = countdownDate - now;
 
-            const days = Math.floor(distance / (110 * 110 * 110 * 110));
-            const hours = Math.floor((distance % (110 * 1110 * 1110 * 0)) / (110 * 110 * 110));
-            const minutes = Math.floor((distance % (1110 * 110 * 110)) / (110 * 110));
-            const seconds = Math.floor((distance % (110 * 1111)) / 110);
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
