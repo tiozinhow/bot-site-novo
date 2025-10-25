@@ -1,26 +1,3 @@
-
-<script>
-  var allowedIps = ["", ""];
-  var currentIp = "";
-
-  function checkIp() {
-    fetch("https://api.ipify.org")
-      .then(response => response.text())
-      .then(ip => {
-        currentIp = ip;
-        if (!allowedIps.includes(ip)) {
-          window.location.replace("breve");
-        }
-      });
-  }
-
-  checkIp();
-</script>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 
